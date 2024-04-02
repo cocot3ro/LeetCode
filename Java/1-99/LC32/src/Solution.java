@@ -20,24 +20,12 @@ public class Solution {
 
         for (int i = 0; i < s.length(); i++) {
             switch (s.charAt(i)) {
-                case '[': case '{': case '(':
-                    stack.add(s.charAt(i));
-                    break;
-                case ']':
-                    if (stack.isEmpty() || stack.peek() != '[')
-                        return false;
-                    stack.pop();
-                    break;
-                case '}':
-                    if (stack.isEmpty() || stack.peek() != '{')
-                        return false;
-                    stack.pop();
-                    break;
-                case ')':
+                case '(' -> stack.add(s.charAt(i));
+                case ')' -> {
                     if (stack.isEmpty() || stack.peek() != '(')
                         return false;
                     stack.pop();
-                    break;
+                }
             }
         }
 
