@@ -3,12 +3,12 @@ class Solution {
         if (head == null) {
             return null;
         }
-        ListNode node = head;
-        ListNode nxtGreater = removeNodes(node.next);
 
-        node.next = nxtGreater;
-        if (nxtGreater == null || node.val >= nxtGreater.val) {
-            return node;
+        ListNode nxtGreater = removeNodes(head.next);
+
+        head.next = nxtGreater;
+        if (nxtGreater == null || head.val >= nxtGreater.val) {
+            return head;
         }
         return nxtGreater;
     }
